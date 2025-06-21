@@ -1,0 +1,134 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  align-items: center;
+}
+
+.wrapper-project {
+  background: rgb(247, 247, 247);
+  border: 1px solid lightgray;
+  width: 90%;
+  max-width: 700px;
+  margin-inline: auto;
+  margin-top: 50px;
+  border-radius: 15px;
+
+}
+
+header {
+  border-radius: inherit;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+.title {
+  font-size: clamp(2rem, 6vw, 2.5rem);
+  font-weight: 400;
+  text-align: center;
+}
+
+.logo {
+  width: clamp(4.5rem, 15vw, 6.2rem);
+}
+
+form {
+  margin: 3rem 0;
+  display: grid;
+  gap: 1rem;
+}
+
+input {
+  font-weight: 600;
+  padding: 8px 13px;
+  border-radius: 5px;
+  border: 2px solid rgb(172, 171, 171);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+button {
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.8);
+  padding: 8px 13px;
+  border-style: none;
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+
+.wrapper-main {
+  width: 85%;
+  margin-inline: auto;
+  max-width: 550px;
+  margin-bottom: 50px;
+}
+
+ul {
+  margin-inline: auto;
+  display: grid;
+  gap: 8px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 2rem;
+  font-weight: normal;
+  color: rgb(51, 51, 51);
+}
+
+ol {
+  display: grid;
+  gap: 8px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.get-recipe-container {
+  border: 1px solid black;
+  background-color: rgb(237, 236, 236);
+  padding: 0 20px 30px;
+  border-radius: 10px;
+
+  & p {
+    color:gray;
+  }
+}
+
+h2{
+  color: rgb(93, 136, 216);
+}
+
+h3 {
+  color: rgb(238, 86, 31);
+}
+
+.result-ingredients {
+  margin-top: 3rem;
+  line-height: 1.6;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 400;
+  color: #475467;
+}
+
+@media screen and (min-width: 28rem) {
+  form {
+    width: 100%;
+    grid-template-columns: 60% 1fr;
+  }
+
+   .button-add {
+    padding: 6px 12px;
+    white-space: nowrap
+  }
+
+  input {
+    padding: 6px 10px;
+  }
+}
+
