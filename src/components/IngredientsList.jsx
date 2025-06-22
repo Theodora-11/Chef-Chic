@@ -9,8 +9,9 @@ export default function IngredientList(props) {
       <h2 className="title-ingredients">Ingredients on hand:</h2>
       <ul>{listIngredients}</ul>
 
-      {props.ingredients.length > 3 && <div className="get-recipe-container">
-        <div>
+      {props.ingredients.length > 3 && 
+        <div className={props.isLoading ? 'loading-border' : 'get-recipe-container'}>
+        <div ref={props.ref}>
           <h3>Ready for a recipe?</h3>
           <p>Generate a recipe from your list of ingredients.</p>
         </div>

@@ -5,6 +5,19 @@ import { getRecipeFromMistral } from "../api.js";
 
 export default function Main() {
   const [ingredients, setIngredients] = React.useState([]);
+  const [result, setResult] = React.useState('');
+  const recipeSection = React.useRef(null);
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  React.useEffect(() => {
+    if(result !== '' && recipeSection.current !== null) {
+      const yCoord = recipeSection.current.getBoundingClientRect().top + window.scrollY
+      window.scroll({
+        top: yCoord - 50,
+        behavior: "smooth"
+      })
+    }
+  }, [result])
 
   function submitForm(formData) {
     const newIngredient = formData.get('ingredient');
@@ -12,11 +25,11 @@ export default function Main() {
     console.log(newIngredient);
   }
 
-  const [result, setResult] = React.useState('');
-
   async function getRecipeResult() {
+    setIsLoading(true);
     const resultRecipe = await getRecipeFromMistral(ingredients);
     setResult(resultRecipe);
+    setIsLoading(false);
   }
 
   return (
@@ -37,6 +50,8 @@ export default function Main() {
           <p>No ingredients yet...</p>
         ) : (
           <IngredientsList
+            isLoading={isLoading}
+            ref={recipeSection}
             ingredients={ingredients}
             getRecipeResult={getRecipeResult}
           />
